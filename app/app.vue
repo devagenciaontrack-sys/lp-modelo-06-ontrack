@@ -36,8 +36,12 @@ const faq = [
   { q: 'Por quanto tempo tenho acesso?', a: 'Acesso por 12 meses a todas as aulas e atualizações.' },
   { q: 'E se eu não gostar?', a: 'Você tem 7 dias de garantia incondicional. Pede o reembolso pela plataforma e recebe 100% do valor.' },
   { q: 'As mentorias ficam gravadas?', a: 'Sim. Todas as mentorias ao vivo ficam disponíveis na área do aluno.' },
-  { q: 'Preciso de experiência?', a: 'Não. O programa começa do zero.' },
+  { q: 'Preciso de experiência?', a: 'Não. O programa começa do zero e cada módulo parte do anterior.' },
+  { q: 'Quanto tempo por semana preciso?', a: 'Umas 3 horas: aulas curtas de até 15 minutos e um exercício prático por semana.' },
+  { q: 'Tem certificado?', a: 'Sim. Ao concluir todos os módulos, o certificado fica disponível na área do aluno.' },
 ]
+const virados = ref<number[]>([])
+const virar = (i: number) => { virados.value = virados.value.includes(i) ? virados.value.filter(x => x !== i) : [...virados.value, i] }
 
 const aberto = ref<number | null>(0)
 const restante = ref<{ d: string; h: string; m: string; s: string } | null>(null)
@@ -141,9 +145,16 @@ const tocando = ref(false)
       </section>
 
       <section class="sec faq">
-        <div class="wrap faq-in">
-          <h2>Perguntas frequentes</h2>
-          <div><details v-for="f in faq" :key="f.q"><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details></div>
+        <div class="wrap">
+          <div class="faq-head"><h2>Perguntas frequentes</h2><p class="muted">Toque num cartão para ver a resposta.</p></div>
+          <ul class="cartas">
+            <li v-for="(f, i) in faq" :key="f.q">
+              <button type="button" class="carta" :class="{ virada: virados.includes(i) }" :aria-pressed="virados.includes(i)" @click="virar(i)">
+                <span class="carta-frente"><span class="carta-q">{{ f.q }}</span><span class="carta-dica" aria-hidden="true">ver resposta</span></span>
+                <span class="carta-verso"><small>{{ f.q }}</small><span>{{ f.a }}</span></span>
+              </button>
+            </li>
+          </ul>
         </div>
       </section>
     </main>
