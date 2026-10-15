@@ -137,3 +137,6 @@ h1{ font-family:var(--display); font-weight:700; font-size:clamp(32px, 5vw, 64px
   .mentor .ph{ aspect-ratio:1; max-width:240px; }
   .carta{ min-height:150px; }
 }
+
+/* celular: área de toque mínima de 44px */
+@media (max-width:760px){ .logo{ min-height:44px; display:inline-flex; align-items:center; } }
