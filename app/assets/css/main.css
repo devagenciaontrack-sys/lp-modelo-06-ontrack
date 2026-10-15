@@ -131,3 +131,9 @@ h1{ font-family:var(--display); font-weight:700; font-size:clamp(32px, 5vw, 64px
 .carta:focus-visible{ outline:2px solid var(--violet); outline-offset:4px; border-radius:20px; }
 @media (prefers-reduced-motion:reduce){ .carta-frente, .carta-verso{ transition:none; } }
 .carta-verso{ gap:10px; justify-content:flex-start; } .carta-verso small{ font-size:12.5px; font-weight:700; opacity:.75; }
+/* celular: título com respiro, foto do mentor e cartões mais compactos */
+@media (max-width:560px){
+  h1{ font-size:28px; line-height:1.12; letter-spacing:-.03em; }
+  .mentor .ph{ aspect-ratio:1; max-width:240px; }
+  .carta{ min-height:150px; }
+}
