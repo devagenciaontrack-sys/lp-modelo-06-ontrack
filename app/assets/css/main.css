@@ -140,3 +140,8 @@ h1{ font-family:var(--display); font-weight:700; font-size:clamp(32px, 5vw, 64px
 
 /* celular: área de toque mínima de 44px */
 @media (max-width:760px){ .logo{ min-height:44px; display:inline-flex; align-items:center; } }
+
+/* regras de interface: toque, pular para o conteúdo, tema escuro */
+html{ touch-action:manipulation; -webkit-tap-highlight-color:rgba(167,139,255,.18); }
+.skip{ position:absolute; left:-9999px; top:12px; z-index:100; padding:10px 16px; border-radius:8px; background:#111; color:#fff; font-weight:700; text-decoration:none; }
+.skip:focus-visible{ left:12px; }

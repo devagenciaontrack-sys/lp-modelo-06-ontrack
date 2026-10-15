@@ -60,11 +60,12 @@ const tocando = ref(false)
 
 <template>
   <div>
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
     <div class="aurora" aria-hidden="true"><span /><span /></div>
 
     <header class="top"><div class="wrap top-in"><a href="#" class="logo">{{ site.marca }}</a><a class="btn btn-ghost btn-sm" href="#oferta">Garantir vaga</a></div></header>
 
-    <main>
+    <main id="conteudo">
       <section class="hero">
         <div class="wrap hero-in">
           <p class="chip"><span class="live" />Turma aberta · vagas por ordem de inscrição</p>
