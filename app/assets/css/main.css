@@ -101,3 +101,15 @@ h1{ font-family:var(--display); font-weight:700; font-size:clamp(32px, 5vw, 64px
 .faq details p{ padding:0 0 20px; color:var(--muted); }
 .foot{ padding-block:32px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
 @media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } .aurora span, .live{ animation:none; } *{ transition:none !important; } }
+
+/* rodapé: marca, CNPJ, redes e crédito da agência */
+.rod{ --rf:var(--text); --rm:var(--muted); --rl:var(--line); --ra:var(--violet); --ron:var(--bg); padding-top:44px; color:var(--rm); font-size:13.5px; }
+.rod-top{ display:grid; gap:24px; padding-bottom:28px; } @media (min-width:800px){ .rod-top{ grid-template-columns:1fr auto; align-items:end; gap:48px; } }
+.rod-brand{ display:grid; gap:4px; } .rod-brand p{ margin:0; line-height:1.55; max-width:62ch; }
+.rod-logo{ display:block; margin-bottom:8px; font-family:var(--display); font-size:22px; color:var(--rf); }
+.rod-soc{ display:flex; gap:10px; }
+.rod-soc a{ display:grid; place-items:center; width:46px; height:46px; border-radius:50%; border:1px solid var(--rl); color:var(--rf); transition:background-color .2s, border-color .2s, color .2s, transform .2s; }
+.rod-soc a:hover{ background:var(--ra); border-color:var(--ra); color:var(--ron); transform:translateY(-2px); }
+.rod-soc svg{ width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.rod-bot{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 24px; padding-top:20px; border-top:1px solid var(--rl); font-size:12.5px; }
+.rod-credit{ color:var(--rm); text-decoration:none; } .rod-credit b{ color:var(--rf); font-weight:600; transition:color .2s; } .rod-credit:hover b{ color:var(--ra); }

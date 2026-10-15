@@ -11,6 +11,9 @@ const site = {
   // fim da turma/oferta (data real). O contador some quando a data passa.
   prazo: '2026-12-31T23:59:00-03:00',
   videoId: '', // ID do vídeo de vendas no YouTube (VSL)
+  cnpj: '00.000.000/0000-00',
+  whatsapp: '5500000000000',
+  instagram: '#',
 }
 const parc = computed(() => (site.preco * 1.18 / site.parcelas).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })) // juros aproximados; ajuste ao checkout
 const brl = (v: number) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 })
@@ -145,6 +148,21 @@ const tocando = ref(false)
       </section>
     </main>
 
-    <footer class="foot"><div class="wrap">© {{ new Date().getFullYear() }} {{ site.marca }} · CNPJ 00.000.000/0000-00 · Resultados dependem da aplicação de cada aluno.</div></footer>
+    <footer class="foot rod">
+      <div class="wrap rod-top">
+        <div class="rod-brand">
+          <b class="rod-logo">{{ site.marca }}</b>
+          <p>CNPJ {{ site.cnpj }}</p><p>Resultados dependem da aplicação de cada aluno.</p>
+        </div>
+        <div class="rod-soc">
+          <a :href="`https://wa.me/${site.whatsapp}`" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5 4.8 16.3A8.5 8.5 0 1 1 8 19.3Z"/><path d="M9.2 8.6c-.1 3.3 2.9 6.3 6.2 6.2l.9-1.5-1.9-.9-.9.8a5 5 0 0 1-2.6-2.6l.8-.9-.9-1.9Z"/></svg></a>
+          <a :href="site.instagram" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg></a>
+        </div>
+      </div>
+      <div class="wrap"><div class="rod-bot">
+        <span>© {{ new Date().getFullYear() }} {{ site.marca }}. Todos os direitos reservados.</span>
+        <a class="rod-credit" href="https://www.ontrackagenciadigital.com.br/" target="_blank" rel="noopener">Desenvolvido por <b>OnTrack Agência Digital</b></a>
+      </div></div>
+    </footer>
   </div>
 </template>
